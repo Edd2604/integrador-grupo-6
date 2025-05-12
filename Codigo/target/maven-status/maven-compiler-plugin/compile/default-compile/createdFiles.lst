@@ -1,0 +1,11 @@
+com\elveloz\config\Conexion.class
+com\elveloz\config\testConexion.class
+com\elveloz\controller\AutenticacionFilter.class
+com\elveloz\config\test.class
+com\elveloz\model\Persona.class
+com\elveloz\model\Cliente.class
+com\elveloz\controller\UsuarioController.class
+com\elveloz\dao\UsuarioDAO.class
+com\elveloz\model\Usuario.class
+com\elveloz\dao\DAOUtil.class
+com\elveloz\model\Proveedor.class
