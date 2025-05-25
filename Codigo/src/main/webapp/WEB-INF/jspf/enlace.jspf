@@ -1,6 +1,6 @@
 
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap" rel="stylesheet">
@@ -21,6 +21,89 @@
         }
     }
     
+    /* Estilos base para la notificación flotante */
+        .notification-container {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .notification-container.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Colores y estilos específicos para notificación de ÉXITO */
+        .notification-success {
+            background-color: #d1fae5; /* green-100 */
+            /* border-color: #34d399; /* green-400 */
+            color: #065f46; /* green-800 */
+        }
+        .notification-success .icon-bg {
+            background-color: #10b981; /* green-500 */
+        }
+        .notification-success .icon-circle-bg {
+            background-color: #ecfdf5; /* green-50 */
+        }
+
+        /* Colores y estilos específicos para notificación de ERROR (similar a la imagen) */
+        .notification-error {
+            background-color: #fff0f5; /* Un rosa muy claro, similar a bg-pink-50 */
+            /* border-color: #ef4444; /* red-500 */
+            color: #374151; /* gray-800 para el texto principal */
+        }
+        .notification-error .icon-bg {
+            background-color: #ef4444; /* red-500 */
+        }
+         .notification-error .icon-circle-bg {
+            background-color: #fce7f3; /* rose-100 o similar */
+        }
+
+
+        /* Estilos generales para los iconos */
+        .icon-wrapper {
+            width: 2.5rem; /* Tamaño del contenedor exterior del icono */
+            height: 2.5rem;
+            border-radius: 9999px; /* Círculo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .icon-inner-circle {
+            width: 1.5rem; /* Tamaño del círculo interior del icono */
+            height: 1.5rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .icon-svg {
+            height: 1rem; /* Tamaño del SVG dentro del círculo */
+            width: 1rem;
+            color: white; /* Color del SVG */
+            fill: currentColor; /* Asegura que el SVG herede el color */
+        }
+        .close-button {
+             position: absolute;
+             top: 0.5rem; /* 8px */
+             right: 0.5rem; /* 8px */
+             padding: 0.25rem; /* 4px */
+             font-size: 0.75rem; /* text-xs */
+             line-height: 1rem; /* leading-4 */
+             color: #9ca3af; /* gray-400 */
+             border-radius: 9999px; /* rounded-full */
+             transition-property: background-color, color;
+             transition-duration: 300ms;
+        }
+        .close-button:hover {
+            color: #4b5563; /* gray-700 */
+            background-color: rgba(0, 0, 0, 0.05); /* un ligero hover para el botón */
+        }
     
     #sidebar {
             position: fixed;
@@ -28,7 +111,7 @@
             left: 0;
             bottom: 0;
             width: 16rem; /* Ancho de la sidebar */
-            background-color: #1e293b; /* bg-gray-800 */
+            background-color: #171717; /* bg-gray-800 */
             color: #f3f4f6; /* text-gray-100 */
             z-index: 50;
             transform: translateX(-100%); /* Ocultar en móviles */
@@ -43,7 +126,7 @@
             position: fixed;
             top: 1rem;
             left: 1rem;
-            background-color: #374151; /* bg-gray-700 */
+            background-color: #171717; /* bg-gray-700 */
             color: #f3f4f6; /* text-gray-100 */
             padding: 0.75rem;
             border-radius: 0.375rem; /* rounded-md */
