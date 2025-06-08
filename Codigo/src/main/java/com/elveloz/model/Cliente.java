@@ -10,7 +10,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Cliente {
     private Integer id_cliente;
-    private Integer id_persona;
+    private String nombre;
+    private String apellido;
+    private String email;
+    private String telefono;
+    private String nacionalidad;
     private String tipo_documento;
     private String numero_documento;
+    private Integer id_rol_cliente;
+    private boolean activo;
 }

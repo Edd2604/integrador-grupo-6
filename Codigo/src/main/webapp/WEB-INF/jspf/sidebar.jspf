@@ -22,17 +22,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3 lucide lucide-gauge-icon lucide-gauge"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
         Dashboard
       </a>
-      <a href="proveedor.jsp"
-        class="flex items-center px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-700 transition-colors duration-150">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3 lucide lucide-user-cog-icon lucide-user-cog"><path d="M10 15H6a4 4 0 0 0-4 4v2"/><path d="m14.305 16.53.923-.382"/><path d="m15.228 13.852-.923-.383"/><path d="m16.852 12.228-.383-.923"/><path d="m16.852 17.772-.383.924"/><path d="m19.148 12.228.383-.923"/><path d="m19.53 18.696-.382-.924"/><path d="m20.772 13.852.924-.383"/><path d="m20.772 16.148.924.383"/><circle cx="18" cy="15" r="3"/><circle cx="9" cy="7" r="4"/></svg>
-        Proovedores
-      </a>
-        <a href="cliente.jsp"
-        class="flex items-center px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-700 transition-colors duration-150">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3 lucide lucide-contact-icon lucide-contact"><path d="M16 2v2"/><path d="M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/><path d="M8 2v2"/><circle cx="12" cy="11" r="3"/><rect x="3" y="4" width="18" height="18" rx="2"/></svg>
-        Clientes
-      </a>
-      <c:if test="${sessionScope.usuarioLogueado.id_rol == 1}">
+        <c:if test="${sessionScope.usuarioLogueado.id_rol == 1}">
             <a href="usuarioControlador?accion=listarActivos"
                 class="flex items-center px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-700 transition-colors duration-150">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-3">
@@ -41,6 +31,7 @@
                 Usuarios
             </a>
         </c:if>
+        
         <h3 class="text-sm text-gray-300 pt-6">Envios</h3>
 
         <a href="#"
@@ -62,6 +53,18 @@
             Ver Envios Consolidados
         </a>
         </c:if>
+        
+        <h3 class="text-sm text-gray-300 pt-6">Clientes</h3>
+        <a href="nacionalControlador?accion=listarClientesNacionales"
+          class="flex items-center px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-700 transition-colors duration-150">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3 lucide lucide-user-cog-icon lucide-user-cog"><path d="M10 15H6a4 4 0 0 0-4 4v2"/><path d="m14.305 16.53.923-.382"/><path d="m15.228 13.852-.923-.383"/><path d="m16.852 12.228-.383-.923"/><path d="m16.852 17.772-.383.924"/><path d="m19.148 12.228.383-.923"/><path d="m19.53 18.696-.382-.924"/><path d="m20.772 13.852.924-.383"/><path d="m20.772 16.148.924.383"/><circle cx="18" cy="15" r="3"/><circle cx="9" cy="7" r="4"/></svg>
+          Nacionales
+        </a>
+          <a href="extranjeroControlador?accion=listarClientesExtranjeros"
+          class="flex items-center px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-700 transition-colors duration-150">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3 lucide lucide-contact-icon lucide-contact"><path d="M16 2v2"/><path d="M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/><path d="M8 2v2"/><circle cx="12" cy="11" r="3"/><rect x="3" y="4" width="18" height="18" rx="2"/></svg>
+          Extranjeros
+        </a>
         
         <h3 class="text-sm text-gray-300 pt-6">Pregunta</h3>
 

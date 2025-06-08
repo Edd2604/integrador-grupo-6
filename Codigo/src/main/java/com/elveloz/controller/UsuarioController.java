@@ -58,7 +58,7 @@ public class UsuarioController extends HttpServlet {
                 break;
                 
             case "eliminarUsuario":
-                System.out.println("Desactivando usuarios activos");
+                System.out.println("Desactivando usuario activo");
                 eliminarUsuario(request, response);
                 break;
                 
@@ -156,8 +156,8 @@ public class UsuarioController extends HttpServlet {
                 nuevoUsuario.setId_rol(Integer.parseInt(rol));
             } catch (NumberFormatException e) {
                 // Error: Formato de rol inválido
-                request.getSession().setAttribute("notificationType", "error"); // Usamos "notificationType"
-                request.getSession().setAttribute("notificationMessage", "Formato de rol inválido."); // Usamos "notificationMessage"
+                request.getSession().setAttribute("notificationType", "error"); 
+                request.getSession().setAttribute("notificationMessage", "Formato de rol inválido."); 
                 response.sendRedirect(request.getContextPath() + "/usuarioControlador?accion=listarActivos");
                 return;
             }
@@ -165,20 +165,20 @@ public class UsuarioController extends HttpServlet {
 
             if (usuarioDAO.agregarUsuario(nuevoUsuario)) {
                 // Éxito al agregar usuario
-                request.getSession().setAttribute("notificationType", "success"); // Usamos "notificationType"
+                request.getSession().setAttribute("notificationType", "success");
                 request.getSession().setAttribute("notificationMessage", "Usuario '" + username + "' agregado exitosamente.");
                 response.sendRedirect(request.getContextPath() + "/usuarioControlador?accion=listarActivos");
             } else {
                 // Error al agregar el usuario
-                request.getSession().setAttribute("notificationType", "error"); // Usamos "notificationType"
-                request.getSession().setAttribute("notificationMessage", "Error al agregar el usuario."); // Usamos "notificationMessage"
+                request.getSession().setAttribute("notificationType", "error"); 
+                request.getSession().setAttribute("notificationMessage", "Error al agregar el usuario."); 
                 response.sendRedirect(request.getContextPath() + "/usuarioControlador?accion=listarActivos");
             }
         } else {
             // Error: Las contraseñas no coinciden
-            System.out.println("Las contraseñas no coinciden"); // Esto es solo para depuración en la consola
-            request.getSession().setAttribute("notificationType", "error"); // Usamos "notificationType"
-            request.getSession().setAttribute("notificationMessage", "Las contraseñas no coinciden."); // Usamos "notificationMessage"
+            System.out.println("Las contraseñas no coinciden"); 
+            request.getSession().setAttribute("notificationType", "error"); 
+            request.getSession().setAttribute("notificationMessage", "Las contraseñas no coinciden."); 
             response.sendRedirect(request.getContextPath() + "/usuarioControlador?accion=listarActivos");
         }
     }
@@ -197,7 +197,7 @@ public class UsuarioController extends HttpServlet {
 
         int offset = (paginaActual - 1) * filasPorPagina;
 
-        UsuarioDAO usuarioDAO = new UsuarioDAO(); // Asegúrate de inicializar tu DAO correctamente
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
         List<Usuario> usuariosActivos = usuarioDAO.listarUsuariosActivosPaginado(filasPorPagina, offset);
         int totalUsuarios = usuarioDAO.contarUsuariosActivos();
         int totalPaginas = (int) Math.ceil((double) totalUsuarios / filasPorPagina);

@@ -228,69 +228,8 @@
            </div>
             
         <script src="js/actualizarUsuarioModal.js"></script>
-
-        <%
-        // Recuperar los mensajes de notificación de la sesión
-        String notificationType = (String) session.getAttribute("notificationType");
-        String notificationMessage = (String) session.getAttribute("notificationMessage");
-
-        // Limpiar los atributos de sesión inmediatamente después de leerlos
-        // para que la notificación no se muestre en la siguiente carga de página.
-        session.removeAttribute("notificationType");
-        session.removeAttribute("notificationMessage");
-
-        if (notificationType != null && !notificationMessage.isEmpty()) {
-    %>
-        <div id="notification" class="notification-container px-4 py-3 rounded-lg flex items-center space-x-3 max-w-xs
-            <%= "success".equals(notificationType) ? "notification-success" : "notification-error" %>">
-
-            <div class="icon-wrapper <%= "success".equals(notificationType) ? "notification-success" : "notification-error" %> icon-circle-bg">
-                <div class="icon-inner-circle <%= "success".equals(notificationType) ? "notification-success" : "notification-error" %> icon-bg">
-                    <% if ("success".equals(notificationType)) { %>
-                        <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                        </svg>
-                    <% } else { %>
-                        <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zM9 5v6h2V5H9zm0 8v2h2v-2H9z"/>
-                        </svg>
-                    <% } %>
-                </div>
-            </div>
-
-            <div class="flex-grow">
-                <% if ("success".equals(notificationType)) { %>
-                    <strong class="font-bold">¡Éxito!</strong>
-                <% } else { %>
-                    <strong class="font-bold">¡Error!</strong>
-                <% } %>
-                <span class="block sm:inline"><%= notificationMessage %></span>
-            </div>
-
-            <button class="close-button" onclick="document.getElementById('notification').classList.remove('show')">
-                <svg class="h-4 w-4 fill-current" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Cerrar</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.697l-2.651 2.652a1.2 1.2 0 1 1-1.697-1.697L8.303 10 5.651 7.348a1.2 1.2 0 1 1 1.697-1.697L10 8.303l2.651-2.652a1.2 1.2 0 1 1 1.697 1.697L11.697 10l2.651 2.651a1.2 1.2 0 0 1 0 1.698z"/></svg>
-            </button>
-        </div>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const notification = document.getElementById('notification');
-                if (notification) {
-                    setTimeout(() => {
-                        notification.classList.add('show');
-                    }, 100);
-
-                    setTimeout(() => {
-                        notification.classList.remove('show');
-                    }, 5000); // 5 segundos
-                }
-            });
-        </script>
-    <%
-        }
-    %>
         
-        
+        <%@include file="WEB-INF/jspf/notificacion.jspf" %>
     </div>    
         
         
