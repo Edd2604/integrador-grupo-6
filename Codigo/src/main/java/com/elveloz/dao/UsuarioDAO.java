@@ -95,6 +95,7 @@ public class UsuarioDAO {
         }
         return usuarios;
     }
+   
     public int contarUsuariosActivos() {
         int total = 0;
         String sql = "SELECT COUNT(*) FROM usuarios WHERE activo = true";
@@ -174,8 +175,6 @@ public class UsuarioDAO {
         return actualizado;
     }
 
-    // Método para cerrar la conexión cuando la instancia de UsuarioDAO no se necesite más
-    public void cerrarConexion() {
-        DAOUtil.cerrarRecursos(null, null, con);
-    }
+
+    
 }

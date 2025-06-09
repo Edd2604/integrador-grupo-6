@@ -2,34 +2,34 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<div class="p-4 pr-8 border-b h-16 border-gray-300 flex justify-between items-center bg-gray-50">
+<div class="p-4 pr-8 border-b h-16 border-gray-300 flex justify-between items-center bg-neutral-900">
     <div class="flex items-center h-full">
-        <h1 class="text-lg font-semibold text-gray-800 sm:text-2xl">${pageTitle}</h1> 
+        <h1 class="text-lg font-semibold text-white pl-8 sm:text-2xl">${pageTitle}</h1> 
     </div>
     <div class="flex items-center h-full">
         <div class="flex items-center mr-4">
             <div class="relative mr-2">
                 <c:if test="${not empty sessionScope.usuarioLogueado.nombre}">
                     <div
-                        class="w-8 h-8 rounded-full border border-gray-500 flex items-center justify-center text-sn font-bold text-gray-200 bg-gray-800 uppercase">
-                        ${sessionScope.usuarioLogueado.nombre.substring(0, 1)}
+                        class="w-8 h-8 rounded-full flex items-center justify-center text-sn font-bold text-neutral-900 bg-gray-200 uppercase">
+                        ${sessionScope.usuarioLogueado.nombre.substring(0, 1)}${sessionScope.usuarioLogueado.apellido.substring(0, 1)}
                     </div>
                 </c:if>
                 <c:if test="${empty sessionScope.usuarioLogueado.nombre}">
                     <div
-                        class="w-8 h-8 rounded-full border border-gray-500 flex items-center justify-center text-sn font-bold text-gray-200 bg-gray-800 uppercase">
-                        U <%-- Mostrar una inicial por defecto si el nombre está vacío --%>
+                        class="w-8 h-8 rounded-full flex items-center justify-center text-sn font-bold text-neutral-900 bg-gray-200 uppercase">
+                        U
                     </div>
                 </c:if>
             </div>
-            <span class="text-gray-800 text-sm font-semibold hidden sm:block">
+            <span class="text-white text-sm font-semibold hidden sm:block">
                 <c:out value="${sessionScope.usuarioLogueado.nombre}" default="" />&nbsp;<c:out value="${sessionScope.usuarioLogueado.apellido}" default="Usuario" />
             </span>
         </div>
         <button class="focus:outline-none h-full">
             <a href="usuarioControlador?accion=cerrarSesion" class="h-full flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                     stroke="currentColor" class="h-6 w-6 text-gray-800 hover:text-red-500">
+                     stroke="currentColor" class="h-6 w-6 text-white hover:text-red-500">
                     <path stroke-linecap="round" stroke-linejoin="round"
                           d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m-3 0l3-3m0 0l-3-3m3 3H9"/>
                 </svg>
