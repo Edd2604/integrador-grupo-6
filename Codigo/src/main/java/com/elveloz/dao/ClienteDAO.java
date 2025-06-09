@@ -190,4 +190,26 @@ public class ClienteDAO {
         return actualizado;
     }
     
+    public List<Cliente> listarClientesActivosParaComboBox(int idRolCliente) {
+        List<Cliente> clientes = new ArrayList<>();
+        String sql = "SELECT id_cliente, nombre, apellido FROM clientes WHERE activo = TRUE AND id_rol_cliente = ? ORDER BY nombre, apellido";
+
+        try (PreparedStatement localPs = con.prepareStatement(sql)) {
+            localPs.setInt(1, idRolCliente);
+            try (ResultSet localRs = localPs.executeQuery()) {
+                while (localRs.next()) {
+                    Cliente cliente = new Cliente();
+                    cliente.setId_cliente(localRs.getInt("id_cliente"));
+                    cliente.setNombre(localRs.getString("nombre"));
+                    cliente.setApellido(localRs.getString("apellido"));
+                    clientes.add(cliente);
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al listar clientes activos para combobox por rol: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return clientes;
+    }
+    
 }

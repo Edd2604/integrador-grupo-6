@@ -6,7 +6,7 @@
 <html>
     <head>
         <%@include file="WEB-INF/jspf/enlace.jspf" %>
-        <title>Cliente</title>
+        <title>Clientes Extrajeros</title>
     </head>
     <body>
         <%@include file="WEB-INF/jspf/sidebar.jspf" %>

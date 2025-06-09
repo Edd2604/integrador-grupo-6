@@ -20,6 +20,7 @@ public class ExtranjeroController extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String accion = request.getParameter("accion");
         
         switch (accion) {   
@@ -47,6 +48,10 @@ public class ExtranjeroController extends HttpServlet {
                 System.out.println("Desactivando Cliente activo");
                 eliminarCliente(request, response);
                 break; 
+                
+            case "listarClienteExtranjeroCbx":
+                    listarClienteExtranjeroCbx(request, response);
+                    break;
                 
             default:
                 request.setAttribute("error", "Acción no válida.");
@@ -256,6 +261,10 @@ public class ExtranjeroController extends HttpServlet {
             request.getSession().setAttribute("notificationMessage", "No se proporcionó el ID del cliente.");
             response.sendRedirect(request.getContextPath() + "/extranjeroControlador?accion=listarClientesExtranjeros"); 
         }
+    }
+    
+    private void listarClienteExtranjeroCbx(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
     }
 
     

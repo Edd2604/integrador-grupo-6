@@ -6,7 +6,7 @@
 <html>
     <head>
         <%@include file="WEB-INF/jspf/enlace.jspf" %>
-        <title>Proveedores</title>
+        <title>Clientes Nacionales</title>
     </head>
     <body>
         <%@include file="WEB-INF/jspf/sidebar.jspf" %>

@@ -4,6 +4,7 @@ package com.elveloz.controller;
 import com.elveloz.dao.ClienteDAO;
 import com.elveloz.model.Cliente;
 import com.google.gson.Gson;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,11 +16,13 @@ import java.util.List;
 @WebServlet(name = "nacionalControlador", urlPatterns = {"/nacionalControlador"})
 public class NacionalController extends HttpServlet {
 
+    
     private final ClienteDAO clienteDAO = new ClienteDAO();
-   
+    
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
        String accion = request.getParameter("accion");
         
         switch (accion) {   
@@ -46,7 +49,8 @@ public class NacionalController extends HttpServlet {
             case "eliminarCliente":
                 System.out.println("Desactivando Cliente activo");
                 eliminarCliente(request, response);
-                break;    
+                break;
+            
                 
             default:
                 request.setAttribute("error", "Acción no válida.");
@@ -256,5 +260,10 @@ public class NacionalController extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/nacionalControlador?accion=listarClientesNacionales"); 
         }
     }
+    
+    
+    
+    
+
     
 }

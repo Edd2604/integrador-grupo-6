@@ -88,7 +88,7 @@
                     </form>
                 <div/>
                 
-                <div class="relative overflow-x-auto lg:px-20 md:px-12 md:px-2 py-12">
+                <div class="relative overflow-x-auto lg:px-20 md:px-12 py-12">
                     <table class="w-full shadow-xl rounded-lg overflow-hidden text-sm text-left rtl:text-right text-gray-500">
                         <thead class="text-xs text-gray-200 uppercase bg-neutral-900">
                             <tr>
